@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block content %}
+
 <h1>
     JS-PY TRANSLATOR!
 </h1>
@@ -10,6 +12,11 @@
 <body>
 
 Type your code here:
+<form method="post">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input">
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
 
 <br>
 <br>
@@ -17,3 +24,5 @@ Type your code here:
 ChatGPT says:
 
 </body>
+
+{% endblock content %}
