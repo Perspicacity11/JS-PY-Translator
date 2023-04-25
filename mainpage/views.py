@@ -22,6 +22,8 @@ def index(request):
             temperature = 0.5, #this setting dictates the creativity of the response
         )
         print(response)
-    return render(request, 'index.html', {})
+
+        chatbot_response = response['choices'][0]['text']
+    return render(request, 'index.html', {'response': chatbot_response})
 
 # I need to provide the logic from logic.py as a third argument to this render (so I'll need to import the logic file)
