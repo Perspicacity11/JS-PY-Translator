@@ -12,7 +12,8 @@ def index(request):
     if api_key is not None and request.method == 'POST':
         openai.api_key = api_key
         user_input = request.POST.get('user_input')
-        prompt = user_input
+        prompt = f"""Please translate this JavaScript code into Python, and ensure that the response is formatted as 
+        code with appropriate indentation: {user_input}"""
 
         response = openai.Completion.create(
             engine = 'text-davinci-003',
