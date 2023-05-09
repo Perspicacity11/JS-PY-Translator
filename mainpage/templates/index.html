@@ -3,15 +3,17 @@
 {% block content %}
 
 <h1>
-    JS-PY TRANSLATOR!
+    JavaScript-Python interpreter
 </h1>
-<h2>
+<h3>
     by Cassius Naylor
-</h2>
+</h3>
 
 <body>
+<br>
+<br>
 
-Type your code here:
+Type or paste your code here:
 <form method="post">
     {% csrf_token %}
     <input type="text" class="form-control" name="user_input">
@@ -20,9 +22,8 @@ Type your code here:
 
 <br>
 <br>
-
-ChatGPT says:
-<br>
+<hr>
+Your translated code:
 <br>
 {% if response %}
     <div>
@@ -31,6 +32,31 @@ ChatGPT says:
         </code></pre>
     </div>
 {% endif %}
+
+<br>
+<br>
+<br>
+<br>
+<hr>
+
+<i>
+    Editor's note:
+
+    This app is powered by <a href="https://platform.openai.com/docs/api-reference">ChatGPT's publicly available API</a>, through which I am using the DaVinci engine
+    to generate formatted code snippets. As with any LLM, GPT does not actually 'know' how to translate code,
+    but more how to properly return the most reasonable, likely answer based on its dataset (part of which
+    is Common Crawl, ergo it has digested all code documentation up to 2021). As such, please recognise that
+    this system will not in all cases return perfectly correct code. It is designed to translate snippets of
+    around 250 words or similar elements. You have been warned.
+    <br>
+    <br>
+    Credit is due to <a href="https://www.youtube.com/@programmingwithmosh">Mosh</a> for his excellent materials
+    on learning Python fundamentals, and to <a href="https://www.youtube.com/@Pyplane">Pyplane</a> for his equally
+    excellent tutorial on using the OpenAI plugin to build a chatbot. I cannot recommend their work highly enough.
+    <br>
+    <br>
+    Created by Cassius Naylor (<a href="https://github.com/Perspicacity11">@Perspicacity11</a>)
+</i>
 
 </body>
 
